@@ -1,45 +1,31 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Code-Freischaltung</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-        #geheimbereich {
-            display: none; 
-            padding: 20px;
-            margin-top: 20px;
-            background: #f0f0f0;
-            border-radius: 8px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <main>
+        <h1>Bitte Code eingeben</h1>
 
-    <h2>Bitte Code eingeben:</h2>
-    <input type="password" id="codeInput">
-    <button onclick="checkCode()">Freischalten</button>
+        <label for="codeInput" class="visually-hidden">Code</label>
+        <input type="password" id="codeInput" placeholder="Geheimcode eingeben" autocomplete="one-time-code">
 
-    <div id="geheimbereich">
-        <h3>Geheimer Bereich</h3>
-        <p>Hier erscheinen zusätzliche Funktionen!</p>
-    </div>
+        <div class="buttons">
+            <button id="unlockBtn">Freischalten</button>
+            <button id="clearBtn" type="button">Zurücksetzen</button>
+        </div>
 
-    <script>
-        function checkCode() {
-            const richtigerCode = "12345";  // <- hier Code ändern
-            const eingabe = document.getElementById("codeInput").value;
+        <div id="message" role="status" aria-live="polite"></div>
 
-            if (eingabe === richtigerCode) {
-                document.getElementById("geheimbereich").style.display = "block";
-            } else {
-                alert("Falscher Code!");
-            }
-        }
-    </script>
+        <div id="geheimbereich" hidden>
+            <h2>Geheimer Bereich</h2>
+            <p>Hier erscheinen zusätzliche Funktionen!</p>
+        </div>
+    </main>
 
+    <script src="script.js" defer></script>
 </body>
 </html>
