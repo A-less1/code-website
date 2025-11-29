@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Code-Freischaltung</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        #geheimbereich {
+            display: none; 
+            padding: 20px;
+            margin-top: 20px;
+            background: #f0f0f0;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Bitte Code eingeben:</h2>
+    <input type="password" id="codeInput">
+    <button onclick="checkCode()">Freischalten</button>
+
+    <div id="geheimbereich">
+        <h3>Geheimer Bereich</h3>
+        <p>Hier erscheinen zusätzliche Funktionen!</p>
+    </div>
+
+    <script>
+        function checkCode() {
+            const richtigerCode = "12345";  // <- hier Code ändern
+            const eingabe = document.getElementById("codeInput").value;
+
+            if (eingabe === richtigerCode) {
+                document.getElementById("geheimbereich").style.display = "block";
+            } else {
+                alert("Falscher Code!");
+            }
+        }
+    </script>
+
+</body>
+</html>
